@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* AIKYA — warm off-white foundation with rich accents */
+    --background: 36 33% 97%;
+    --foreground: 0 0% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 36 33% 97%;
+
+    --secondary: 36 23% 93%;
+    --secondary-foreground: 0 0% 12%;
+
+    --muted: 36 20% 94%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 222 80% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --warning: 28 90% 54%;
+    --warning-foreground: 0 0% 100%;
+
+    --success: 152 56% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --indigo: 222 80% 50%;
+    --orange: 24 88% 56%;
+    --green: 152 56% 42%;
+    --yellow: 43 88% 56%;
+    --coral: 349 76% 58%;
+
+    --border: 36 15% 88%;
+    --input: 36 15% 87%;
+    --ring: 222 80% 50%;
+
+    --chart-1: 222 80% 50%;
+    --chart-2: 24 88% 56%;
+    --chart-3: 152 56% 42%;
+    --chart-4: 43 88% 56%;
+    --chart-5: 349 76% 58%;
+
+    --radius: 0.625rem;
+  }
+
+  .dark {
+    --background: 220 20% 6%;
+    --foreground: 36 30% 94%;
+
+    --card: 220 18% 9%;
+    --card-foreground: 36 30% 94%;
+
+    --popover: 220 20% 8%;
+    --popover-foreground: 36 30% 94%;
+
+    --primary: 36 30% 96%;
+    --primary-foreground: 220 20% 10%;
+
+    --secondary: 220 14% 16%;
+    --secondary-foreground: 36 30% 94%;
+
+    --muted: 220 14% 14%;
+    --muted-foreground: 36 10% 60%;
+
+    --accent: 222 80% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --warning: 28 85% 56%;
+    --warning-foreground: 220 20% 8%;
+
+    --success: 152 50% 48%;
+    --success-foreground: 220 20% 8%;
+
+    --indigo: 222 80% 58%;
+    --orange: 24 85% 58%;
+    --green: 152 50% 48%;
+    --yellow: 43 85% 58%;
+    --coral: 349 70% 62%;
+
+    --border: 220 12% 18%;
+    --input: 220 12% 20%;
+    --ring: 36 30% 96%;
+
+    --chart-1: 222 80% 58%;
+    --chart-2: 24 85% 58%;
+    --chart-3: 152 50% 48%;
+    --chart-4: 43 85% 58%;
+    --chart-5: 349 70% 62%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "cv01", "cv02";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  ::selection {
+    background: hsl(var(--accent) / 0.18);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-serif), Georgia, 'Times New Roman', serif;
+  }
+  .font-sans {
+    font-family: var(--font-sans), system-ui, sans-serif;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.35) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.35) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .bg-dots {
+    background-image: radial-gradient(hsl(var(--border)) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .glass {
+    background: hsl(var(--card) / 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.25);
+    border-radius: 999px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--indigo)), hsl(var(--coral)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.2);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.35);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
